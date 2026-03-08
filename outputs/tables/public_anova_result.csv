@@ -1,0 +1,2 @@
+"test","variable","predictor","F_statistic","df1","df2","p_value"
+"One-way ANOVA","math_score","parental_level_of_education",6.52158260045319,5,994,0.00000559227238410444

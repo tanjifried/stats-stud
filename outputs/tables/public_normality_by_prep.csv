@@ -1,0 +1,7 @@
+"variable","n","mean","sd","median","skewness","kurtosis","ad_statistic","ad_pvalue","is_normal","interpretation","recommendation"
+"math_score_completed",358,69.695530726257,14.4446992253885,69,-0.146904094789504,2.82119808106638,0.299082775074567,0.583377651580441,TRUE,"Approximately normal (AD p > 0.05, |skew| < 2, |kurtosis| < 7)","Parametric tests appropriate"
+"math_score_none",642,64.0778816199377,15.1923756392721,64,-0.327955442262782,3.38887579048391,0.588343209706863,0.124732829376091,TRUE,"Approximately normal (AD p > 0.05, |skew| < 2, |kurtosis| < 7)","Parametric tests appropriate"
+"reading_score_completed",358,73.8938547486033,13.6383836413481,75,-0.286964582867978,2.63837787768983,1.12745526706738,0.00590003961415959,FALSE,"Non-normal (check AD test, skewness, or kurtosis)","Consider non-parametric alternatives or transformation"
+"reading_score_none",642,66.5342679127726,14.463885096478,67,-0.233102685191722,3.05783882660521,0.516247034934281,0.189652321801291,TRUE,"Approximately normal (AD p > 0.05, |skew| < 2, |kurtosis| < 7)","Parametric tests appropriate"
+"writing_score_completed",358,74.4189944134078,13.3753348436307,76,-0.34682850765833,2.80719167861766,1.09369821959115,0.00714694258352502,FALSE,"Non-normal (check AD test, skewness, or kurtosis)","Consider non-parametric alternatives or transformation"
+"writing_score_none",642,64.5046728971963,14.9996612536534,65,-0.214758623700474,3.06793518468225,0.550682025660649,0.155532138337365,TRUE,"Approximately normal (AD p > 0.05, |skew| < 2, |kurtosis| < 7)","Parametric tests appropriate"

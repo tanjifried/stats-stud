@@ -1,0 +1,2 @@
+"test","outcome","grouping","n","k_groups","f_statistic","df_between","df_within","p_value","p_value_formatted","eta_squared","omega_squared"
+"One-way ANOVA","math_score","parental_level_of_education",1000,6,6.52158260045319,5,994,0.00000559227238410444,"< 0.001",0.0317627719300406,0.0268661934702376

@@ -1,0 +1,2 @@
+"test","outcome","grouping","n","k_groups","h_statistic","df","p_value","epsilon_squared"
+"Kruskal-Wallis","math_score","parental_level_of_education",1000,6,26.506294729202,5,0.0000711615364986249,0.0216361113975875

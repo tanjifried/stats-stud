@@ -1,0 +1,2 @@
+"test","variable","predictor","H_statistic","df","p_value"
+"Kruskal-Wallis","math_score","parental_level_of_education",26.506294729202,5,0.0000711615364986249

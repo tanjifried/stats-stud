@@ -1,0 +1,4 @@
+"math_score","reading_score","writing_score","variable"
+1,0.817579663672054,0.802642045949808,"math_score"
+0.817579663672054,1,0.954598077146248,"reading_score"
+0.802642045949808,0.954598077146248,1,"writing_score"

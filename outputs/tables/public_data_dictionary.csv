@@ -1,0 +1,9 @@
+"variable","type","n_missing","n_unique"
+"gender","character",0,2
+"race_ethnicity","character",0,5
+"parental_level_of_education","character",0,6
+"lunch","character",0,2
+"test_preparation_course","character",0,2
+"math_score","integer",0,81
+"reading_score","integer",0,72
+"writing_score","integer",0,77

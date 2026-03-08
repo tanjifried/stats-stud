@@ -1,0 +1,4 @@
+"variable","n_total","n_missing","iqr_outliers","iqr_bounds","modz_outliers","extreme_outliers"
+"math_score",1000,0,8,"[27, 107]",2,0
+"reading_score",1000,0,6,"[29, 109]",1,0
+"writing_score",1000,0,5,"[25.88, 110.88]",1,0

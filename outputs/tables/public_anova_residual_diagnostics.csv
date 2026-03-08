@@ -1,0 +1,2 @@
+"test","n_obs","shapiro_w","shapiro_p","levene_f","levene_p","assumptions_met"
+"ANOVA Residual Diagnostics",1000,0.993913187607311,0.000432306787031871,0.933346082636385,0.458397339131623,FALSE

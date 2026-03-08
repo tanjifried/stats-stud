@@ -1,0 +1,12 @@
+"scope","variable","group","n","statistic_w","p_value"
+"overall","math_score",,1000,0.993151387221695,0.000145457191567382
+"overall","reading_score",,1000,0.992920513006058,0.000105543121778773
+"overall","writing_score",,1000,0.991964462838313,0.0000292154940759316
+"by_test_preparation_course","math_score","completed",358,0.993661364054858,0.139349394015846
+"by_test_preparation_course","math_score","none",642,0.992117120105849,0.00175422446420071
+"by_parental_level_of_education","math_score","associate's degree",222,0.987237191206899,0.0445510248220746
+"by_parental_level_of_education","math_score","bachelor's degree",118,0.990634668465302,0.604352067668634
+"by_parental_level_of_education","math_score","high school",196,0.986827398905243,0.0652154221470217
+"by_parental_level_of_education","math_score","master's degree",59,0.955851388431466,0.0317222813668778
+"by_parental_level_of_education","math_score","some college",226,0.989411163950678,0.0958505111193554
+"by_parental_level_of_education","math_score","some high school",179,0.977357195752183,0.00516347105312254

@@ -1,0 +1,2 @@
+"test","outcome","group_1","group_2","n_group_1","n_group_2","mean_group_1","mean_group_2","sd_group_1","sd_group_2","t_statistic","df","p_value","ci_low","ci_high","mean_difference","cohen_d","hedges_g"
+"Welch t-test","math_score","completed","none",358,642,69.695530726257,64.0778816199377,14.4446992253885,15.1923756392721,5.78698315790775,770.079109780967,0.0000000104256167220696,3.71204097296643,7.52325723967215,5.61764910631929,0.376285445245579,0.376002594748026

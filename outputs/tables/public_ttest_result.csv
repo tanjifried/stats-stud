@@ -1,0 +1,2 @@
+"test","variable","group1","group2","n1","n2","mean1","mean2","t_stat","df","p_value","cohens_d"
+"Welch t-test","math_score","completed","none",358,642,69.695530726257,64.0778816199377,5.78698315790775,770.079109780967,0.0000000104256167220696,0.376285445245579

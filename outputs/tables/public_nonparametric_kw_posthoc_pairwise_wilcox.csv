@@ -1,0 +1,16 @@
+"group_1","group_2","p_value_bh"
+"bachelor's degree","associate's degree",0.433877203036997
+"high school","associate's degree",0.00458928100807867
+"master's degree","associate's degree",0.461294089080461
+"some college","associate's degree",0.77936734393029
+"some high school","associate's degree",0.0496036968009534
+"high school","bachelor's degree",0.00129373977159313
+"master's degree","bachelor's degree",0.77936734393029
+"some college","bachelor's degree",0.291389963987712
+"some high school","bachelor's degree",0.0138738224698938
+"master's degree","high school",0.00458928100807867
+"some college","high school",0.00458928100807867
+"some high school","high school",0.359070112596971
+"some college","master's degree",0.291389963987712
+"some high school","master's degree",0.0298713435764686
+"some high school","some college",0.100555900888097
