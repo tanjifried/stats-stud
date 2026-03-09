@@ -392,28 +392,28 @@ save_table_csv(normality_by_prep, file.path(paths$tables, "public_normality_by_p
 
 message("Creating visualizations...")
 
-# Histograms with optimal bin selection (Freedman-Diaconis rule)
-for (sc in score_cols) {
-  x <- stats::na.omit(df[[sc]])
-  # Calculate optimal bins using Freedman-Diaconis rule
-  bin_width <- 2 * stats::IQR(x) / length(x)^(1/3)
-  n_bins <- max(10, min(50, ceiling(diff(range(x)) / bin_width)))
-  
-  p_hist <- ggplot2::ggplot(df, ggplot2::aes(x = .data[[sc]])) +
-    ggplot2::geom_histogram(bins = n_bins, fill = score_colors[[sc]], color = "white") +
-    ggplot2::geom_vline(xintercept = mean(x), color = "black", linetype = "dashed", linewidth = 1) +
-    ggplot2::geom_vline(xintercept = median(x), color = "gray40", linetype = "dashed", linewidth = 1) +
-    ggplot2::labs(
-      title = paste("Distribution of", sc),
-      subtitle = sprintf("Mean = %.1f (red), Median = %.1f (green), Skewness = %.2f",
-                        mean(x), median(x), moments::skewness(x)),
-      x = sc,
-      y = "Count"
-    ) +
-    ggplot2::theme_minimal()
-  
-  save_plot(p_hist, paste0("public_hist_", sc, ".png"))
-}
+# Combined Histograms with optimal bin selection (Freedman-Diaconis rule)
+df_long <- df |>
+  tidyr::pivot_longer(cols = all_of(score_cols), names_to = "subject", values_to = "score")
+
+x <- stats::na.omit(df_long$score)
+bin_width <- 2 * stats::IQR(x) / length(x)^(1/3)
+n_bins <- max(10, min(50, ceiling(diff(range(x)) / bin_width)))
+
+p_hist_combined <- ggplot2::ggplot(df_long, ggplot2::aes(x = score, fill = subject)) +
+  ggplot2::geom_histogram(bins = n_bins, color = "white", alpha = 0.8) +
+  ggplot2::facet_wrap(~subject, ncol = 3, scales = "free_x") +
+  ggplot2::labs(
+    title = "Distribution of Math, Reading, and Writing Scores",
+    subtitle = sprintf("Freedman-Diaconis optimal bins = %d", n_bins),
+    x = "Score",
+    y = "Count"
+  ) +
+  ggplot2::scale_fill_manual(values = unname(score_colors)) +
+  ggplot2::theme_minimal() +
+  ggplot2::theme(legend.position = "none")
+
+save_plot(p_hist_combined, "public_hist_combined.png", width = 12, height = 4)
 
 # Boxplots
 for (sc in score_cols) {
