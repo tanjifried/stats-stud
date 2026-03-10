@@ -5,6 +5,53 @@ All notable changes to the stats-stud project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [2.2.0] - 2026-03-11
+
+### Added
+
+#### Outlier Analysis Script (`scripts/06_outlier_analysis.R`)
+- **Option 1 — Row-level outlier flagging**: IQR (1.5× and 3×) + modified Z-score flags for
+  all 19 flagged observations across `math_score`, `reading_score`, and `writing_score`;
+  saved as `outputs/tables/public_outlier_detail.csv`
+- **Option 2 — Winsorization**: Clamps values to 1.5×IQR fences without deleting rows
+  (n stays at 1,000); saves changed rows to `outputs/tables/public_outlier_winsorized.csv`
+  and a descriptive comparison (original vs. winsorized) to
+  `outputs/tables/public_outlier_winsorize_compare.csv`
+- **Option 3 — Sensitivity analysis**: Runs One-Way ANOVA and Kruskal-Wallis on both the
+  full dataset (n = 1,000) and the outliers-excluded subset (n = 992); saves results to
+  `outputs/tables/public_outlier_sensitivity.csv`
+- **Automated verdict block**: Compares p-values across datasets and prints a ROBUST/CHANGED
+  conclusion at the end of the run
+
+#### Outlier Handling Guide (`notes/outlier_guide.md`)
+- Documents all three handling strategies with academic justification for each
+- **Verdict section** at the top: keep outliers (Option 1 recommended)
+- Copy-paste ready paper justification paragraph (Option 1) and sensitivity reporting
+  paragraph (Option 3) pre-filled with real numbers from `06_outlier_analysis.R`
+- Decision lookup table: maps professor feedback to the correct option
+- Section linking outlier detection to Kruskal-Wallis test selection (rubric alignment)
+- Output file index at the bottom referencing all 4 new CSVs
+
+### Results (from `06_outlier_analysis.R` run)
+
+| Metric | Full dataset (n=1,000) | Outliers excluded (n=992) |
+|---|---|---|
+| IQR-flagged observations | 19 (all scores) | — |
+| Extreme outliers (3×IQR) | **0** | — |
+| Modified Z > 3.5 | 4 | — |
+| ANOVA F-statistic | 14.59 | 14.19 |
+| ANOVA p-value | < 0.001 | < 0.001 |
+| Eta-squared (η²) | 0.0554 | 0.0544 |
+| Kruskal-Wallis H | 57.08 | 55.05 |
+| Kruskal-Wallis p-value | < 0.001 | < 0.001 |
+| Epsilon-squared (ε²) | 0.0533 | 0.0517 |
+
+> **Verdict:** Results are **robust**. Zero extreme outliers found; p-values and effect sizes
+> are virtually unchanged with/without the 8 flagged `math_score` observations.
+> Outliers retained as genuine low-performing students.
+
+---
+
 ## [2.1.0] - 2026
 
 ### Added
@@ -337,6 +384,8 @@ Major enhancement of the stats-stud project addressing critical statistical meth
    source("scripts/00_setup.R")
    source("scripts/01_public_clean_eda.R")
    source("scripts/02_public_tests.R")
+   source("scripts/05_stat_guidance.R")   # test recommendations
+   source("scripts/06_outlier_analysis.R") # outlier handling + sensitivity
    # After collecting CCSICT data:
    source("scripts/03_ccsict_clean_eda.R")
    source("scripts/04_ccsict_tests_compare.R")
