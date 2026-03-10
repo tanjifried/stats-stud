@@ -1,0 +1,5 @@
+"analysis","test","n","df_between","df_within","df","F_statistic","H_statistic","p_value","significant","eta_squared","epsilon_squared"
+"Full dataset (n=1000)","One-Way ANOVA",1000,4,995,,14.5939,,0,TRUE,0.0554,
+"Outliers excluded (n=992)","One-Way ANOVA",992,4,987,,14.1865,,0,TRUE,0.0544,
+"Full dataset (n=1000)","Kruskal-Wallis",1000,,,4,,57.0793,0,TRUE,,0.0533
+"Outliers excluded (n=992)","Kruskal-Wallis",992,,,4,,55.0544,0,TRUE,,0.0517

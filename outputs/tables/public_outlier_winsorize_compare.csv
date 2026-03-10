@@ -1,0 +1,7 @@
+"series","n","mean","sd","median","min","max"
+"math_original",1000,66.089,15.1631,66,0,100
+"math_winsorized",1000,66.165,14.9224,66,27,100
+"reading_original",1000,69.169,14.6002,70,17,100
+"reading_winsorized",1000,69.201,14.5035,70,29,100
+"writing_original",1000,68.054,15.1957,69,10,100
+"writing_winsorized",1000,68.0944,15.0684,69,25.875,100
