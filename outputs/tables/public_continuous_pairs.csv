@@ -1,0 +1,4 @@
+"var1","var2","n","pearson_r","pearson_p","spearman_rho","spearman_p","pearson_sig","strength"
+"math_score","reading_score",1000,0.8176,0,0.8041,0,"***","Strong"
+"math_score","writing_score",1000,0.8026,0,0.7783,0,"***","Strong"
+"reading_score","writing_score",1000,0.9546,0,0.949,0,"***","Very Strong"

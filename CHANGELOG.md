@@ -5,6 +5,36 @@ All notable changes to the stats-stud project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [2.1.0] - 2026
+
+### Added
+
+#### Statistical Guidance Script (`scripts/05_stat_guidance.R`)
+- **Categorical predictors table** — per-group `n`, `mean ± SD`, and `median` for all
+  5 categorical variables × 3 score columns; saved as `public_categorical_predictors_detail.csv`
+- **Ranked predictor table** — max mean spread (highest − lowest group mean) per predictor ×
+  score, ranked descending; identifies strongest multi-group predictor for ANOVA candidates;
+  saved as `public_categorical_ranked.csv`
+- **Continuous pairs table** — Pearson r + Spearman ρ with p-values, significance stars, and
+  verbal strength label for all 3 score pairings; saved as `public_continuous_pairs.csv`
+- **Paired scatter plot** — 3-panel figure with regression lines + r/ρ annotations for every
+  continuous pair; saved as `public_pairs_scatter.png`
+- **Data-driven test recommendations** — automatically selects the multi-group predictor with
+  the largest math score spread and generates H₀/H₁ statements; saved as
+  `public_test_recommendations.csv`; recommendation: ANOVA + Kruskal-Wallis on
+  `math_score × race_ethnicity`
+
+#### Hypothesis Testing Guide (`notes/hypothesis_testing_guide.md`)
+- Decision framework table (parametric vs. non-parametric selection criteria)
+- Pre-populated categorical predictors summary table and continuous pairs table
+- Full 7-component write-up for both recommended tests (ANOVA and Kruskal-Wallis)
+  covering: Research Question, H₀, H₁, Assumptions, R Code, Interpretation, Conclusion
+- Effect size reference table (η², ω², ε², Cohen's d)
+- Normality assessment summary with Hair et al. (2019) criteria interpretation
+- Statistical references section
+
+---
+
 ## [2.0.0] - 2024
 
 ### Summary

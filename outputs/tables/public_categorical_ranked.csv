@@ -1,0 +1,16 @@
+"predictor","score","n_groups","max_spread","top_group","top_mean","bottom_group","bottom_mean"
+"race_ethnicity","math_score",5,12.19,"group e",73.82,"group a",61.63
+"lunch","math_score",2,11.11,"standard",70.03,"free/reduced",58.92
+"parental_level_of_education","math_score",6,7.61,"master's degree",69.75,"high school",62.14
+"test_preparation_course","math_score",2,5.62,"completed",69.7,"none",64.08
+"gender","math_score",2,5.1,"male",68.73,"female",63.63
+"parental_level_of_education","reading_score",6,10.67,"master's degree",75.37,"high school",64.7
+"race_ethnicity","reading_score",5,8.36,"group e",73.03,"group a",64.67
+"test_preparation_course","reading_score",2,7.36,"completed",73.89,"none",66.53
+"gender","reading_score",2,7.14,"female",72.61,"male",65.47
+"lunch","reading_score",2,7,"standard",71.65,"free/reduced",64.65
+"parental_level_of_education","writing_score",6,13.23,"master's degree",75.68,"high school",62.45
+"test_preparation_course","writing_score",2,9.92,"completed",74.42,"none",64.5
+"gender","writing_score",2,9.16,"female",72.47,"male",63.31
+"race_ethnicity","writing_score",5,8.74,"group e",71.41,"group a",62.67
+"lunch","writing_score",2,7.8,"standard",70.82,"free/reduced",63.02
