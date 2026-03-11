@@ -1,0 +1,2 @@
+"test","variable","group1","group2","n1","n2","mean1","mean2","mean_diff","t_stat","df","p_value","cohens_d","effect_size","ci_low","ci_high","decision"
+"Independent t-test (pooled)","overall_score","completed","none",358,642,72.67,65.04,7.63,8.391,998,0.0000000000000000816890101796165,0.553,"Medium",6.13,Inf,"Reject H0"
