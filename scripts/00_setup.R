@@ -11,12 +11,18 @@
 
 # Clear environment safely
 clean_env <- function() {
-  # Preserve renv if it exists (for reproducibility)
+  # Preserve run context values needed before setup is reloaded.
+  keep <- character(0)
+
   if ("renv" %in% loadedNamespaces()) {
-    rm(list = setdiff(ls(envir = .GlobalEnv), "renv"), envir = .GlobalEnv)
-  } else {
-    rm(list = ls(envir = .GlobalEnv), envir = .GlobalEnv)
+    keep <- c(keep, "renv")
   }
+
+  if (exists("stats_stud_context", envir = .GlobalEnv, inherits = FALSE)) {
+    keep <- c(keep, "stats_stud_context")
+  }
+
+  rm(list = setdiff(ls(envir = .GlobalEnv), keep), envir = .GlobalEnv)
 }
 clean_env()
 
@@ -64,13 +70,33 @@ invisible(suppressPackageStartupMessages(
 
 # Define portable paths using here::here()
 # This ensures scripts work regardless of working directory
+script_context <- if (exists("stats_stud_context", inherits = TRUE)) {
+  get("stats_stud_context", inherits = TRUE)
+} else {
+  NULL
+}
+
+if (identical(script_context, "public")) {
+  figures_dir <- here("outputs", "public", "figures")
+  tables_dir <- here("outputs", "public", "tables")
+} else if (identical(script_context, "ccsict")) {
+  figures_dir <- here("outputs", "ccsict", "figures")
+  tables_dir <- here("outputs", "ccsict", "tables")
+} else {
+  figures_dir <- here("outputs", "figures")
+  tables_dir <- here("outputs", "tables")
+}
+
 paths <- list(
   public_raw = here("data", "public", "StudentsPerformance.csv"),
   public_clean = here("data", "public", "StudentsPerformance_clean.csv"),
-  ccsict_raw = here("data", "ccsict", "ccsict_responses_raw.csv"),
-  ccsict_clean = here("data", "ccsict", "ccsict_responses_clean.csv"),
-  figures = here("outputs", "figures"),
-  tables = here("outputs", "tables")
+  ccsict_raw = here("data", "ccsict", "ccsict_survey.csv"),
+  ccsict_scores = here("data", "ccsict", "program_scores.csv"),
+  ccsict_dataset_raw = here("data", "ccsict", "ccsict-dataset-raw.csv"),
+  ccsict_dataset = here("data", "ccsict", "ccsict-dataset.csv"),
+  ccsict_clean = here("data", "ccsict", "ccsict-dataset-clean.csv"),
+  figures = figures_dir,
+  tables = tables_dir
 )
 
 # Create output directories if they don't exist
