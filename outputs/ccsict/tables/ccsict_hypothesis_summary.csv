@@ -1,0 +1,4 @@
+"hypothesis","status","test_used","estimate","p_value","decision","note"
+"H1: Lecture vs laboratory performance","not_run","Not run",,,"Not tested","lecture_score is a continuous exam score, while lab_completed is a binary completion outcome. A paired t-test or Wilcoxon signed-rank test would not be valid because the measures are not on the same scale."
+"H2: Preparedness vs lecture performance","completed","Pearson",0.463766436069528,0.00984192612112955,"Reject H0","Recommended test based on normality: Pearson"
+"H3: Preparedness vs laboratory performance","skipped","Not run",,,"Not tested","Laboratory completion is too imbalanced for a stable inferential test. At least two students are needed in each group."

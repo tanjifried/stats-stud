@@ -1,0 +1,2 @@
+"analysis","status","test","estimate","statistic","p_value","significant","completed_n","not_completed_n","interpretation","decision","reason"
+"preparedness_vs_lab_completed","skipped",,,,,,29,1,,"Not tested","Laboratory completion is too imbalanced for a stable inferential test. At least two students are needed in each group."

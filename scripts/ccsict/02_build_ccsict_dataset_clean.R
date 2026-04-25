@@ -42,7 +42,7 @@ clean_dataset <- dataset |>
     respondent_id,
     sex,
     program,
-    preparation_method = prep_method,
+    preparation_mode,
     preparedness_score = round(as.numeric(preparedness_score), 4),
     preparedness_level,
     lecture_score = as.numeric(lec_score),

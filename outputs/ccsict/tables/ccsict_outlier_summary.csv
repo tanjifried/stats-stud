@@ -1,0 +1,3 @@
+"variable","label","iqr","lower_fence","upper_fence","outliers"
+"preparedness_score","Preparedness Score",0.71875,2.546875,5.421875,0
+"lecture_score","Lecture Score",15.5,36.75,98.75,1

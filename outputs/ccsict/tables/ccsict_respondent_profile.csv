@@ -1,0 +1,12 @@
+"variable","percent","level","n"
+"sex",46.67,"Female",14
+"sex",53.33,"Male",16
+"program",50,"BSCS",15
+"program",50,"BSDSA",15
+"preparation_mode",56.67,"with_ai",17
+"preparation_mode",43.33,"without_ai",13
+"preparedness_level",46.67,"High",14
+"preparedness_level",20,"Moderate",6
+"preparedness_level",33.33,"Very High",10
+"lab_completed",96.67,"Completed",29
+"lab_completed",3.33,"Not completed",1

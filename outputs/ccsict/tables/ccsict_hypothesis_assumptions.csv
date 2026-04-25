@@ -1,0 +1,7 @@
+"assumption","test_method","result","p_value","status"
+"Independence of observations","Study design","One row per unique student",,"Met"
+"Continuous variables","Variable inspection","Both variables are numeric",,"Met"
+"Normality - preparedness_score","Anderson-Darling test","A = 0.306",0.543907261081854,"Met"
+"Normality - lecture_score","Anderson-Darling test","A = 0.171",0.924175656554002,"Met"
+"Linearity","Scatterplot inspection","Moderate positive linear pattern observed",,"Met"
+"Outlier influence","IQR outlier check","preparedness_score: 0; lecture_score: 1",,"Acceptable"

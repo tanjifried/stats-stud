@@ -12,6 +12,14 @@ if (!file.exists(paths$ccsict_dataset_raw)) {
 
 raw_dataset <- utils::read.csv(paths$ccsict_dataset_raw, stringsAsFactors = FALSE)
 
+collapse_preparation_mode <- function(x) {
+  dplyr::case_when(
+    x %in% c("AI-Assisted", "Hybrid") ~ "with_ai",
+    x %in% c("Traditional", "Did not prepare") ~ "without_ai",
+    TRUE ~ NA_character_
+  )
+}
+
 preparedness_level <- dplyr::case_when(
   raw_dataset$preparedness_score <= 1.80 ~ "Very Low",
   raw_dataset$preparedness_score <= 2.60 ~ "Low",
@@ -27,7 +35,7 @@ dataset <- raw_dataset |>
     student_id,
     sex,
     program,
-    prep_method,
+    preparation_mode = collapse_preparation_mode(prep_method),
     preparedness_score = round(preparedness_score, 4),
     preparedness_level = preparedness_level,
     lec_score = as.numeric(lec_score),

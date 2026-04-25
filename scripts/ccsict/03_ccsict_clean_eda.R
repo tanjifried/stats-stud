@@ -46,6 +46,20 @@ describe_numeric <- function(x, variable, label = variable) {
   )
 }
 
+summarize_outliers <- function(x, variable, label = variable) {
+  out <- detect_outliers(x)
+
+  data.frame(
+    variable = variable,
+    label = label,
+    iqr = stats::IQR(x, na.rm = TRUE),
+    lower_fence = out$iqr_lower,
+    upper_fence = out$iqr_upper,
+    outliers = out$iqr_outliers,
+    stringsAsFactors = FALSE
+  )
+}
+
 make_profile <- function(data, column, variable_name) {
   data.frame(level = data[[column]], stringsAsFactors = FALSE) |>
     dplyr::count(level, name = "n") |>
@@ -83,7 +97,7 @@ quality_checks <- data.frame(
 respondent_profile <- dplyr::bind_rows(
   make_profile(dataset, "sex", "sex"),
   make_profile(dataset, "program", "program"),
-  make_profile(dataset, "preparation_method", "preparation_method"),
+  make_profile(dataset, "preparation_mode", "preparation_mode"),
   make_profile(dataset, "preparedness_level", "preparedness_level"),
   make_profile(dataset, "lab_completed", "lab_completed")
 )
@@ -94,9 +108,19 @@ preparedness_descriptives <- describe_numeric(
   "Preparedness Score"
 )
 
+numeric_descriptives <- dplyr::bind_rows(
+  preparedness_descriptives,
+  describe_numeric(dataset$lecture_score, "lecture_score", "Lecture Score")
+)
+
 score_descriptives <- dplyr::bind_rows(
   describe_numeric(dataset$lecture_score, "lecture_score", "Lecture Score"),
   describe_numeric(dataset$lab_completed_binary, "lab_completed", "Laboratory Completed (0/1)")
+)
+
+outlier_summary <- dplyr::bind_rows(
+  summarize_outliers(dataset$preparedness_score, "preparedness_score", "Preparedness Score"),
+  summarize_outliers(dataset$lecture_score, "lecture_score", "Lecture Score")
 )
 
 preparedness_by_program <- dataset |>
@@ -112,8 +136,10 @@ preparedness_by_program <- dataset |>
 
 save_table_csv(quality_checks, file.path(paths$tables, "ccsict_quality_checks.csv"))
 save_table_csv(respondent_profile, file.path(paths$tables, "ccsict_respondent_profile.csv"))
+save_table_csv(numeric_descriptives, file.path(paths$tables, "ccsict_numeric_descriptives.csv"))
 save_table_csv(preparedness_descriptives, file.path(paths$tables, "ccsict_preparedness_descriptives.csv"))
 save_table_csv(score_descriptives, file.path(paths$tables, "ccsict_score_descriptives.csv"))
+save_table_csv(outlier_summary, file.path(paths$tables, "ccsict_outlier_summary.csv"))
 save_table_csv(preparedness_by_program, file.path(paths$tables, "ccsict_preparedness_by_program.csv"))
 
 # ============================================================================
@@ -133,6 +159,20 @@ hist_specs <- data.frame(
   binwidth = c(5, 0.25),
   stringsAsFactors = FALSE
 )
+
+p_box_overall <- dataset |>
+  dplyr::select(preparedness_score, lecture_score) |>
+  tidyr::pivot_longer(cols = dplyr::everything(), names_to = "variable", values_to = "value") |>
+  ggplot2::ggplot(ggplot2::aes(x = variable, y = value, fill = variable)) +
+  ggplot2::geom_boxplot(alpha = 0.85, show.legend = FALSE) +
+  ggplot2::labs(
+    title = "Boxplot of Preparedness and Lecture Score",
+    x = "Variable",
+    y = "Value"
+  ) +
+  ggplot2::theme_minimal()
+
+save_plot(p_box_overall, "ccsict_box_overall_scores.png", width = 7, height = 5)
 
 for (i in seq_len(nrow(hist_specs))) {
   spec <- hist_specs[i, ]
@@ -163,7 +203,7 @@ for (sc in score_cols) {
 }
 
 bar_specs <- data.frame(
-  variable = c("sex", "program", "preparation_method", "preparedness_level", "lab_completed"),
+  variable = c("sex", "program", "preparation_mode", "preparedness_level", "lab_completed"),
   width = c(7, 7, 8, 7, 7),
   stringsAsFactors = FALSE
 )
@@ -180,7 +220,7 @@ for (i in seq_len(nrow(bar_specs))) {
     ) +
     ggplot2::theme_minimal()
 
-  if (spec$variable %in% c("preparation_method", "preparedness_level")) {
+  if (spec$variable %in% c("preparation_mode", "preparedness_level")) {
     p_bar <- p_bar +
       ggplot2::theme(axis.text.x = ggplot2::element_text(angle = 30, hjust = 1))
   }
@@ -221,10 +261,10 @@ message("Creating grouped boxplots...")
 box_specs <- list(
   list(x = "program", y = "preparedness_score", width = 7),
   list(x = "sex", y = "preparedness_score", width = 7),
-  list(x = "preparation_method", y = "preparedness_score", width = 8),
+  list(x = "preparation_mode", y = "preparedness_score", width = 8),
   list(x = "program", y = "lecture_score", width = 7),
   list(x = "sex", y = "lecture_score", width = 7),
-  list(x = "preparation_method", y = "lecture_score", width = 8)
+  list(x = "preparation_mode", y = "lecture_score", width = 8)
 )
 
 for (spec in box_specs) {
@@ -237,7 +277,7 @@ for (spec in box_specs) {
     ) +
     ggplot2::theme_minimal()
 
-  if (spec$x == "preparation_method") {
+  if (spec$x == "preparation_mode") {
     p_box <- p_box +
       ggplot2::theme(axis.text.x = ggplot2::element_text(angle = 30, hjust = 1))
   }

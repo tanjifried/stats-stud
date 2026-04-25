@@ -1,0 +1,3 @@
+"variable","label","n","mean","median","sd","min","max"
+"lecture_score","Lecture Score",30,66.7666666666667,67,14.3543417277415,39,100
+"lab_completed","Laboratory Completed (0/1)",30,0.966666666666667,1,0.182574185835055,0,1

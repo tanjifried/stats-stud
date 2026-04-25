@@ -1,31 +1,31 @@
-"respondent_id","student_id","sex","program","prep_method","preparedness_score","preparedness_level","lec_score","lab_score","lab_completed"
-"R01","25-0889","Male","BSCS","Hybrid",4.125,"High",42,100,1
-"R02","25-0894","Male","BSCS","Did not prepare",3.625,"High",76,100,1
-"R03","25-0897","Male","BSCS","Hybrid",4.9375,"Very High",79,100,1
-"R04","25-0899","Male","BSCS","Hybrid",3,"Moderate",84,100,1
-"R05","25-0900","Male","BSCS","Traditional",4.5,"Very High",65,100,1
-"R06","25-0901","Female","BSCS","Hybrid",4.375,"Very High",60,100,1
-"R07","25-0903","Female","BSCS","Hybrid",4.6875,"Very High",73,100,1
-"R08","25-0907","Male","BSCS","Hybrid",3.6875,"High",39,100,1
-"R09","25-0914","Male","BSCS","Hybrid",4.25,"Very High",61,100,1
-"R10","25-0921","Female","BSCS","Hybrid",4.875,"Very High",84,100,1
-"R11","25-0925","Male","BSCS","Did not prepare",3.25,"Moderate",74,100,1
-"R12","25-2547","Female","BSCS","Hybrid",3.3125,"Moderate",45,100,1
-"R13","25-2548","Male","BSCS","Hybrid",2.9375,"Moderate",60,100,1
-"R14","25-2806","Female","BSCS","Hybrid",3.75,"High",69,100,1
-"R15","25-2807","Female","BSCS","Hybrid",3.8125,"High",73,100,1
-"R16","24-1141","Female","BSDSA","Hybrid",3.625,"High",61,100,1
-"R17","24-1618","Female","BSDSA","Hybrid",3.6875,"High",80,100,1
-"R18","25-0721","Male","BSDSA","Hybrid",3.6875,"High",61,100,1
-"R19","25-0774","Male","BSDSA","Did not prepare",4,"High",74,100,1
-"R20","25-0776","Male","BSDSA","Traditional",3.3125,"Moderate",56,100,1
-"R21","25-0779","Female","BSDSA","Hybrid",4.5,"Very High",69,100,1
-"R22","25-0780","Female","BSDSA","Hybrid",3.75,"High",69,100,1
-"R23","25-0781","Male","BSDSA","Traditional",4.5,"Very High",87,100,1
-"R24","25-0888","Male","BSDSA","Hybrid",4.75,"Very High",100,100,1
-"R25","25-2809","Male","BSDSA","Hybrid",3.625,"High",51,100,1
-"R26","25-2811","Female","BSDSA","Traditional",3.4375,"High",54,0,0
-"R27","25-2813","Female","BSDSA","Did not prepare",2.625,"Moderate",47,100,1
-"R28","25-2815","Female","BSDSA","Hybrid",3.75,"High",62,100,1
-"R29","25-2816","Female","BSDSA","Traditional",4.0625,"High",65,100,1
-"R30","25-2899","Male","BSDSA","AI-Assisted",4.25,"Very High",83,100,1
+"respondent_id","student_id","sex","program","preparation_mode","preparedness_score","preparedness_level","lec_score","lab_score","lab_completed"
+"R01","25-0889","Male","BSCS","with_ai",4.125,"High",42,100,1
+"R02","25-0894","Male","BSCS","without_ai",3.625,"High",76,100,1
+"R03","25-0897","Male","BSCS","with_ai",4.9375,"Very High",79,100,1
+"R04","25-0899","Male","BSCS","with_ai",3,"Moderate",84,100,1
+"R05","25-0900","Male","BSCS","without_ai",4.5,"Very High",65,100,1
+"R06","25-0901","Female","BSCS","with_ai",4.375,"Very High",60,100,1
+"R07","25-0903","Female","BSCS","with_ai",4.6875,"Very High",73,100,1
+"R08","25-0907","Male","BSCS","with_ai",3.6875,"High",39,100,1
+"R09","25-0914","Male","BSCS","with_ai",4.25,"Very High",61,100,1
+"R10","25-0921","Female","BSCS","with_ai",4.875,"Very High",84,100,1
+"R11","25-0925","Male","BSCS","without_ai",3.25,"Moderate",74,100,1
+"R12","25-2547","Female","BSCS","with_ai",3.3125,"Moderate",45,100,1
+"R13","25-2548","Male","BSCS","with_ai",2.9375,"Moderate",60,100,1
+"R14","25-2806","Female","BSCS","with_ai",3.75,"High",69,100,1
+"R15","25-2807","Female","BSCS","without_ai",3.8125,"High",73,100,1
+"R16","24-1141","Female","BSDSA","without_ai",3.625,"High",61,100,1
+"R17","24-1618","Female","BSDSA","with_ai",3.6875,"High",80,100,1
+"R18","25-0721","Male","BSDSA","with_ai",3.6875,"High",61,100,1
+"R19","25-0774","Male","BSDSA","without_ai",4,"High",74,100,1
+"R20","25-0776","Male","BSDSA","without_ai",3.3125,"Moderate",56,100,1
+"R21","25-0779","Female","BSDSA","with_ai",4.5,"Very High",69,100,1
+"R22","25-0780","Female","BSDSA","without_ai",3.75,"High",69,100,1
+"R23","25-0781","Male","BSDSA","without_ai",4.5,"Very High",87,100,1
+"R24","25-0888","Male","BSDSA","with_ai",4.75,"Very High",100,100,1
+"R25","25-2809","Male","BSDSA","with_ai",3.625,"High",51,100,1
+"R26","25-2811","Female","BSDSA","without_ai",3.4375,"High",54,0,0
+"R27","25-2813","Female","BSDSA","without_ai",2.625,"Moderate",47,100,1
+"R28","25-2815","Female","BSDSA","without_ai",3.75,"High",62,100,1
+"R29","25-2816","Female","BSDSA","without_ai",4.0625,"High",65,100,1
+"R30","25-2899","Male","BSDSA","with_ai",4.25,"Very High",83,100,1

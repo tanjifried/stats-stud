@@ -1,0 +1,2 @@
+"analysis","status","reason","recommendation"
+"lecture_vs_lab_difference","not_run","lecture_score is a continuous exam score, while lab_completed is a binary completion outcome. A paired t-test or Wilcoxon signed-rank test would not be valid because the measures are not on the same scale.","Report lecture score and lab completion separately in the paper."

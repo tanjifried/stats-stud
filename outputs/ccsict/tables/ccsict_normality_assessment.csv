@@ -1,0 +1,3 @@
+"variable","n","mean","sd","median","skewness","kurtosis","ad_statistic","ad_pvalue","is_normal","interpretation","recommendation"
+"lecture_score",30,66.7666666666667,14.3543417277415,67,0.0298128064870806,2.65493478616889,0.170696891973002,0.924175656554002,TRUE,"Approximately normal (AD p > 0.05, |skew| < 2, |kurtosis| < 7)","Parametric tests appropriate"
+"preparedness_score",30,3.88958333333333,0.59103470175461,3.75,-0.0431624471949106,2.35886900275314,0.306482248600556,0.543907261081854,TRUE,"Approximately normal (AD p > 0.05, |skew| < 2, |kurtosis| < 7)","Parametric tests appropriate"
