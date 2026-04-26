@@ -154,9 +154,22 @@ score_colors <- c(
   preparedness_score = "#059669"
 )
 
+pretty_labels <- c(
+  sex = "Sex",
+  program = "Program",
+  preparation_mode = "Preparation Mode",
+  preparedness_level = "Preparedness Level",
+  lab_completed = "Laboratory Completion Status",
+  lecture_score = "Lecture Score",
+  preparedness_score = "Preparedness Score"
+)
+
 hist_specs <- data.frame(
   variable = c("lecture_score", "preparedness_score"),
-  binwidth = c(5, 0.25),
+  binwidth = c(14, 0.5),
+  boundary = c(35, 2.5),
+  title = c("Frequency Distribution of Lecture Scores", "Frequency Distribution of Preparedness Scores"),
+  x_label = c("Lecture Score", "Preparedness Score"),
   stringsAsFactors = FALSE
 )
 
@@ -178,10 +191,15 @@ for (i in seq_len(nrow(hist_specs))) {
   spec <- hist_specs[i, ]
 
   p_hist <- ggplot2::ggplot(dataset, ggplot2::aes(x = .data[[spec$variable]])) +
-    ggplot2::geom_histogram(binwidth = spec$binwidth, fill = score_colors[[spec$variable]], color = "white") +
+    ggplot2::geom_histogram(
+      binwidth = spec$binwidth,
+      boundary = spec$boundary,
+      fill = score_colors[[spec$variable]],
+      color = "white"
+    ) +
     ggplot2::labs(
-      title = paste("Distribution of", spec$variable),
-      x = spec$variable,
+      title = spec$title,
+      x = spec$x_label,
       y = "Count"
     ) +
     ggplot2::theme_minimal()
@@ -194,7 +212,7 @@ for (sc in score_cols) {
     ggplot2::stat_qq(color = score_colors[[sc]]) +
     ggplot2::stat_qq_line(color = "black") +
     ggplot2::labs(
-      title = paste("QQ Plot:", sc),
+      title = paste("Normal Q-Q Plot of", pretty_labels[[sc]]),
       subtitle = "Deviations from line indicate non-normality"
     ) +
     ggplot2::theme_minimal()
@@ -214,8 +232,8 @@ for (i in seq_len(nrow(bar_specs))) {
   p_bar <- ggplot2::ggplot(dataset, ggplot2::aes(x = .data[[spec$variable]])) +
     ggplot2::geom_bar(fill = "steelblue") +
     ggplot2::labs(
-      title = paste("Distribution of", spec$variable),
-      x = spec$variable,
+      title = paste("Distribution of", pretty_labels[[spec$variable]]),
+      x = pretty_labels[[spec$variable]],
       y = "Count"
     ) +
     ggplot2::theme_minimal()
@@ -242,10 +260,10 @@ for (pair in scatter_pairs) {
     ggplot2::geom_point(alpha = 0.5, color = score_colors[[x]]) +
     ggplot2::geom_smooth(method = "lm", se = TRUE, color = score_colors[[y]]) +
     ggplot2::labs(
-      title = paste("Relationship:", x, "vs", y),
+      title = paste(pretty_labels[[x]], "versus", pretty_labels[[y]]),
       subtitle = sprintf("Pearson r = %.3f", pearson_r),
-      x = x,
-      y = y
+      x = pretty_labels[[x]],
+      y = pretty_labels[[y]]
     ) +
     ggplot2::theme_minimal()
 
@@ -271,9 +289,9 @@ for (spec in box_specs) {
   p_box <- ggplot2::ggplot(dataset, ggplot2::aes(x = .data[[spec$x]], y = .data[[spec$y]], fill = .data[[spec$x]])) +
     ggplot2::geom_boxplot(alpha = 0.85, show.legend = FALSE) +
     ggplot2::labs(
-      title = paste("Boxplot:", spec$y, "by", spec$x),
-      x = spec$x,
-      y = spec$y
+      title = paste(pretty_labels[[spec$y]], "by", pretty_labels[[spec$x]]),
+      x = pretty_labels[[spec$x]],
+      y = pretty_labels[[spec$y]]
     ) +
     ggplot2::theme_minimal()
 
