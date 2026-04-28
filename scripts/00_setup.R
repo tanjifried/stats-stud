@@ -76,41 +76,12 @@ script_context <- if (exists("stats_stud_context", inherits = TRUE)) {
   NULL
 }
 
-resolve_env_path <- function(name, default) {
-  value <- Sys.getenv(name, unset = "")
-
-  if (nzchar(value)) {
-    return(value)
-  }
-
-  default
-}
-
-ccsict_dataset_id <- Sys.getenv("STATS_STUD_CCSICT_DATASET_ID", unset = "ccsict")
-ccsict_output_key <- if (identical(ccsict_dataset_id, "ccsict")) "ccsict" else file.path("ccsict", ccsict_dataset_id)
-
-ccsict_defaults <- list(
-  raw = if (identical(ccsict_dataset_id, "ccsict")) {
-    here("data", "ccsict", "ccsict_survey.csv")
-  } else {
-    here("data", "ccsict", paste0(ccsict_dataset_id, "_survey.csv"))
-  },
-  scores = if (identical(ccsict_dataset_id, "ccsict")) {
-    here("data", "ccsict", "program_scores.csv")
-  } else {
-    here("data", "ccsict", paste0(ccsict_dataset_id, "_program_scores.csv"))
-  },
-  dataset_raw = here("data", "ccsict", paste0(ccsict_dataset_id, "-dataset-raw.csv")),
-  dataset = here("data", "ccsict", paste0(ccsict_dataset_id, "-dataset.csv")),
-  clean = here("data", "ccsict", paste0(ccsict_dataset_id, "-dataset-clean.csv"))
-)
-
 if (identical(script_context, "public")) {
   figures_dir <- here("outputs", "public", "figures")
   tables_dir <- here("outputs", "public", "tables")
 } else if (identical(script_context, "ccsict")) {
-  figures_dir <- here("outputs", ccsict_output_key, "figures")
-  tables_dir <- here("outputs", ccsict_output_key, "tables")
+  figures_dir <- here("outputs", "ccsict", "figures")
+  tables_dir <- here("outputs", "ccsict", "tables")
 } else {
   figures_dir <- here("outputs", "figures")
   tables_dir <- here("outputs", "tables")
@@ -119,12 +90,11 @@ if (identical(script_context, "public")) {
 paths <- list(
   public_raw = here("data", "public", "StudentsPerformance.csv"),
   public_clean = here("data", "public", "StudentsPerformance_clean.csv"),
-  ccsict_raw = resolve_env_path("STATS_STUD_CCSICT_RAW", ccsict_defaults$raw),
-  ccsict_scores = resolve_env_path("STATS_STUD_CCSICT_SCORES", ccsict_defaults$scores),
-  ccsict_dataset_raw = resolve_env_path("STATS_STUD_CCSICT_DATASET_RAW", ccsict_defaults$dataset_raw),
-  ccsict_dataset = resolve_env_path("STATS_STUD_CCSICT_DATASET", ccsict_defaults$dataset),
-  ccsict_clean = resolve_env_path("STATS_STUD_CCSICT_CLEAN", ccsict_defaults$clean),
-  ccsict_dataset_id = ccsict_dataset_id,
+  ccsict_raw = here("data", "ccsict", "ccsict_survey.csv"),
+  ccsict_scores = here("data", "ccsict", "program_scores.csv"),
+  ccsict_dataset_raw = here("data", "ccsict", "ccsict-dataset-raw.csv"),
+  ccsict_dataset = here("data", "ccsict", "ccsict-dataset.csv"),
+  ccsict_clean = here("data", "ccsict", "ccsict-dataset-clean.csv"),
   figures = figures_dir,
   tables = tables_dir
 )
