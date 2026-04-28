@@ -1,0 +1,65 @@
+"design","strata_columns","allocation_method","seed","stratum_label","available_n","requested_n","sampled_n","capacity_limited"
+"program","program","proportional",143,"BSCS",25,15,15,FALSE
+"program","program","proportional",143,"BSDSA",25,15,15,FALSE
+"program","program","equal",144,"BSCS",25,15,15,FALSE
+"program","program","equal",144,"BSDSA",25,15,15,FALSE
+"sex","sex","proportional",243,"Male",25,15,15,FALSE
+"sex","sex","proportional",243,"Female",25,15,15,FALSE
+"sex","sex","equal",244,"Male",25,15,15,FALSE
+"sex","sex","equal",244,"Female",25,15,15,FALSE
+"preparation_mode","preparation_mode","proportional",343,"with_ai",28,16.8,17,FALSE
+"preparation_mode","preparation_mode","proportional",343,"without_ai",22,13.2,13,TRUE
+"preparation_mode","preparation_mode","equal",344,"with_ai",28,15,15,FALSE
+"preparation_mode","preparation_mode","equal",344,"without_ai",22,15,15,FALSE
+"preparedness_level","preparedness_level","proportional",443,"High",25,15,15,FALSE
+"preparedness_level","preparedness_level","proportional",443,"Very High",12,7.2,7,TRUE
+"preparedness_level","preparedness_level","proportional",443,"Moderate",10,6,6,FALSE
+"preparedness_level","preparedness_level","proportional",443,"Low",3,1.8,2,FALSE
+"preparedness_level","preparedness_level","equal",444,"High",25,7.5,9,FALSE
+"preparedness_level","preparedness_level","equal",444,"Very High",12,7.5,9,FALSE
+"preparedness_level","preparedness_level","equal",444,"Moderate",10,7.5,9,FALSE
+"preparedness_level","preparedness_level","equal",444,"Low",3,7.5,3,TRUE
+"lab_completed","lab_completed","proportional",543,"Completed",46,27.6,28,FALSE
+"lab_completed","lab_completed","proportional",543,"Not completed",4,2.4,2,TRUE
+"lab_completed","lab_completed","equal",544,"Completed",46,15,26,FALSE
+"lab_completed","lab_completed","equal",544,"Not completed",4,15,4,TRUE
+"program_sex","program,sex","proportional",643,"BSCS | Male",14,8.4,8,TRUE
+"program_sex","program,sex","proportional",643,"BSCS | Female",11,6.6,7,FALSE
+"program_sex","program,sex","proportional",643,"BSDSA | Female",14,8.4,8,TRUE
+"program_sex","program,sex","proportional",643,"BSDSA | Male",11,6.6,7,FALSE
+"program_sex","program,sex","equal",644,"BSCS | Male",14,7.5,8,FALSE
+"program_sex","program,sex","equal",644,"BSCS | Female",11,7.5,7,TRUE
+"program_sex","program,sex","equal",644,"BSDSA | Female",14,7.5,8,FALSE
+"program_sex","program,sex","equal",644,"BSDSA | Male",11,7.5,7,TRUE
+"program_preparation_mode","program,preparation_mode","proportional",743,"BSCS | with_ai",17,10.2,10,TRUE
+"program_preparation_mode","program,preparation_mode","proportional",743,"BSCS | without_ai",8,4.8,5,FALSE
+"program_preparation_mode","program,preparation_mode","proportional",743,"BSDSA | without_ai",14,8.4,8,TRUE
+"program_preparation_mode","program,preparation_mode","proportional",743,"BSDSA | with_ai",11,6.6,7,FALSE
+"program_preparation_mode","program,preparation_mode","equal",744,"BSCS | with_ai",17,7.5,8,FALSE
+"program_preparation_mode","program,preparation_mode","equal",744,"BSCS | without_ai",8,7.5,7,TRUE
+"program_preparation_mode","program,preparation_mode","equal",744,"BSDSA | without_ai",14,7.5,8,FALSE
+"program_preparation_mode","program,preparation_mode","equal",744,"BSDSA | with_ai",11,7.5,7,TRUE
+"sex_preparation_mode","sex,preparation_mode","proportional",843,"Male | with_ai",15,9,9,FALSE
+"sex_preparation_mode","sex,preparation_mode","proportional",843,"Female | with_ai",13,7.8,8,FALSE
+"sex_preparation_mode","sex,preparation_mode","proportional",843,"Male | without_ai",10,6,6,FALSE
+"sex_preparation_mode","sex,preparation_mode","proportional",843,"Female | without_ai",12,7.2,7,TRUE
+"sex_preparation_mode","sex,preparation_mode","equal",844,"Male | with_ai",15,7.5,8,FALSE
+"sex_preparation_mode","sex,preparation_mode","equal",844,"Female | with_ai",13,7.5,8,FALSE
+"sex_preparation_mode","sex,preparation_mode","equal",844,"Male | without_ai",10,7.5,7,TRUE
+"sex_preparation_mode","sex,preparation_mode","equal",844,"Female | without_ai",12,7.5,7,TRUE
+"program_sex_preparation_mode","program,sex,preparation_mode","proportional",943,"BSCS | Male | with_ai",9,5.4,5,TRUE
+"program_sex_preparation_mode","program,sex,preparation_mode","proportional",943,"BSCS | Female | with_ai",8,4.8,5,FALSE
+"program_sex_preparation_mode","program,sex,preparation_mode","proportional",943,"BSCS | Male | without_ai",5,3,3,FALSE
+"program_sex_preparation_mode","program,sex,preparation_mode","proportional",943,"BSCS | Female | without_ai",3,1.8,2,FALSE
+"program_sex_preparation_mode","program,sex,preparation_mode","proportional",943,"BSDSA | Female | without_ai",9,5.4,5,TRUE
+"program_sex_preparation_mode","program,sex,preparation_mode","proportional",943,"BSDSA | Female | with_ai",5,3,3,FALSE
+"program_sex_preparation_mode","program,sex,preparation_mode","proportional",943,"BSDSA | Male | with_ai",6,3.6,4,FALSE
+"program_sex_preparation_mode","program,sex,preparation_mode","proportional",943,"BSDSA | Male | without_ai",5,3,3,FALSE
+"program_sex_preparation_mode","program,sex,preparation_mode","equal",944,"BSCS | Male | with_ai",9,3.75,4,FALSE
+"program_sex_preparation_mode","program,sex,preparation_mode","equal",944,"BSCS | Female | with_ai",8,3.75,4,FALSE
+"program_sex_preparation_mode","program,sex,preparation_mode","equal",944,"BSCS | Male | without_ai",5,3.75,4,FALSE
+"program_sex_preparation_mode","program,sex,preparation_mode","equal",944,"BSCS | Female | without_ai",3,3.75,3,TRUE
+"program_sex_preparation_mode","program,sex,preparation_mode","equal",944,"BSDSA | Female | without_ai",9,3.75,4,FALSE
+"program_sex_preparation_mode","program,sex,preparation_mode","equal",944,"BSDSA | Female | with_ai",5,3.75,4,FALSE
+"program_sex_preparation_mode","program,sex,preparation_mode","equal",944,"BSDSA | Male | with_ai",6,3.75,4,FALSE
+"program_sex_preparation_mode","program,sex,preparation_mode","equal",944,"BSDSA | Male | without_ai",5,3.75,3,TRUE
