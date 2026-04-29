@@ -23,15 +23,7 @@ target_sample_n <- min(30L, nrow(dataset))
 base_seed <- 42L
 
 strata_designs <- list(
-  program = c("program"),
-  sex = c("sex"),
-  preparation_mode = c("preparation_mode"),
-  preparedness_level = c("preparedness_level"),
-  lab_completed = c("lab_completed"),
-  program_sex = c("program", "sex"),
-  program_preparation_mode = c("program", "preparation_mode"),
-  sex_preparation_mode = c("sex", "preparation_mode"),
-  program_sex_preparation_mode = c("program", "sex", "preparation_mode")
+  program = c("program")
 )
 
 allocation_methods <- c("proportional", "equal")
